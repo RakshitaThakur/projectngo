@@ -20,6 +20,6 @@ def registration(request):
     return render(request,'student/registration.html',{'forms':form})
 
 def attendance(request):
-     student_list = Attendance.objects.order_by('name')
+     student_list = Attendance.objects.order_by('rollno')
      data_dict = {'students': student_list}
-     return render(request, 'student/registration.html', context=data_dict)
+     return render(request, 'student/attendance.html', context=data_dict)

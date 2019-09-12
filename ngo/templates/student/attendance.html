@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container my-12">
+    <div class="jumbotron">
+      <div class="container">
+       {% if students %}
+        <table class="table table-striped">
+          <thead>
+           <tr>
+             <th>Rollno</th>
+             <th>Date</th>
+             <th>Status</th>
+           </tr>
+          </thead>
+      </div>
+    </div>
+</div>
+        <tbody>
+        {% for Attendance in students %}
+        <tr>
+            <td>{{ Attendance.rollno }}</td>
+            <td>{{ Attendance.date}}</td>
+            <td>{{ Attendance.status }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No records found.</p>
+    {% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
