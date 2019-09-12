@@ -1,23 +1,25 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from student.forms import *
-from student.models import *
- 
-
+from .forms import *
+from .models import *
 
 def test(request):
- 	return HttpResponse('testing student application successful at 127.0.0.1:8000/student/')
+    return HttpResponse('testing student application successful at 127.0.0.1:8000/student/')
 
 
-'''
+
 def registration(request):
-	form = NewRegistration()
-	if request.method == 'POST':
-		form = NewRegistration(request.POST)
+    form=sdata_form()
+    if request.method == 'POST':
+        form = sdata_form(request.POST)
         if form.is_valid():
-        	form.save()
+            form.save()
             return redirect('/')
     else:
-        form = NewRegistration()
+        form=sdata_form()
     return render(request,'student/registration.html',{'forms':form})
-'''
+
+def attendance(request):
+     student_list = Attendance.objects.order_by('name')
+     data_dict = {'students': student_list}
+     return render(request, 'student/registration.html', context=data_dict)

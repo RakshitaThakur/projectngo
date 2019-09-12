@@ -1,10 +1,7 @@
-'''
 from django import forms
-from student.models import registration
+from .models import sdata
 
-
-class NewRegistration(forms.ModelForm):
-    class Meta:
-        model = registration
-        fields = '__all__'
-'''
+class sdata_form(forms.ModelForm):
+    class Meta():
+     model = sdata
+     exclude=[]

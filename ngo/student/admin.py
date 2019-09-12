@@ -1,10 +1,8 @@
 from django.contrib import admin
 from django import forms
-from django.forms import ModelForm
-#from student.models import registration, sdata
+from .views import *
+from .models import *
 
 
-'''
-admin.site.register(registration)
 admin.site.register(sdata)
-'''
+admin.site.register(Attendance)
