@@ -23,3 +23,4 @@ def attendance(request):
      student_list = Attendance.objects.order_by('rollno')
      data_dict = {'students': student_list}
      return render(request, 'student/attendance.html', context=data_dict)
+
