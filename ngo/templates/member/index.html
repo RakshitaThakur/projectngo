@@ -4,7 +4,10 @@
   <div class="jumbotron">
 
     {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
+        <h2>Hello {{ user.username }}</h2><br><br>
+      <a href="/student/registration/"><strong>student registration</strong></a>
+      <a href="/student/attendance/"><strong>attendance</strong></a>
+
     {% else %}
         <p>You need to Register or Login</p>
     {% endif %}

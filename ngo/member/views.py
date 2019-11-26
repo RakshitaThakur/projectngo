@@ -52,7 +52,7 @@ def userlogin(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return redirect('/')
+                return redirect('/member/')
             else:
                 return HttpResponse("YOur account was inactive.")
         else:

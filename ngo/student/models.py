@@ -1,16 +1,19 @@
 from django.db import models
+import datetime
 
 class sdata(models.Model):
-    rollno = models.IntegerField(primary_key=True)
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True)
     address = models.CharField(max_length=50)
     fathername = models.CharField(max_length=50)
     mothername = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
 
+
+
 class Attendance(models.Model):
-    rollno = models.IntegerField(null=True)
-    date = models.DateField()
-    status = models.NullBooleanField()
+    rollno = models.ForeignKey(sdata, on_delete=models.CASCADE)
+    date = models.DateField(("Date"), default=datetime.date.today,unique_for_date="True")
+    status = models.BooleanField(default="False")
+

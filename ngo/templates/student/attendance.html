@@ -11,7 +11,7 @@
 <div class="container my-12">
     <div class="jumbotron">
       <div class="container">
-       {% if students %}
+       {% if rollno %}
         <table class="table table-striped">
           <thead>
            <tr>
@@ -23,15 +23,22 @@
       </div>
     </div>
 </div>
-        <tbody>
-        {% for Attendance in students %}
-        <tr>
-            <td>{{ Attendance.rollno }}</td>
-            <td>{{ Attendance.date}}</td>
-            <td>{{ Attendance.status }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
+
+         <form method="post">
+
+             {% for rollno in rollno %}
+                    <tbody>
+                   <tr>
+                        <td>{{ rollno }}</td>
+                         <td><input type="radio" name="attendance" value="true" checked> Present
+                         <input type="radio" name="attendance" value="false"> Absent
+                         </td>
+                   </tr>
+                    </tbody>
+             {% endfor %}
+
+             <input type="submit" class="btn btn-primary"value="submit">
+         </form>
     </table>
     {% else %}
     <p>No records found.</p>
